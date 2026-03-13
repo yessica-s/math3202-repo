@@ -21,15 +21,12 @@ m = gp.Model("ASC")
 #Create variables
 X = {} #hrs per telescope per day main/total belt
 Y = {} #hrs per telescope per day on neo belt
+H = {} #total hrs of telescope use per day
 for t in T:
     for d in D:
         X[t, d] = m.addVar(vtype=gp.GRB.CONTINUOUS)
         Y[t, d] = m.addVar(vtype=gp.GRB.CONTINUOUS)
-
-# Add variable to track how many hours the telescopes are used
-H = {} #hrs of telescope use per day
-for t in T:
-    for d in D:
+        # Add variable to track how many hours the telescopes are used
         H[t,d] = m.addVar(vtype=gp.GRB.CONTINUOUS)
 
 #Objective
@@ -66,3 +63,5 @@ m.optimize()
 
 #Find optimal discoveries
 print(m.ObjVal)
+
+
