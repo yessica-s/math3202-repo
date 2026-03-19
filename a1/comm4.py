@@ -14,6 +14,7 @@ total_visibility_per_day = [4.8, 5.5, 6.5, 4.7, 5.4, 5.6, 6.1]
 neo_visibility_per_day = [3.3, 3.9, 4.0, 3.6, 3.6, 3.8, 4.8]
 maxData = 500 #GB per day
 dataPerTelescope = 25 #GB per day
+minUsage = 10 #hrs per week per telescope
 
 #Setup model
 m = gp.Model("ASC")
@@ -48,6 +49,7 @@ for t in T:
 
             # track hrs, sum hours observing neo belt and main belt
             m.addConstr(H[t, d] == X[t, d] + Y[t, d])
+    m.addConstr(gp.quicksum(H[t, d] for d in D) >= minUsage)
 
 for d in D:
     m.addConstr(gp.quicksum(H[t,d] for t in T)*dataPerTelescope <= maxData)
