@@ -83,7 +83,7 @@ D = range(len(days))
 
 #Data
 efficiency = [0.99, 0.99, 0.93, 0.41, 0.40, 0.33] #efficiency in detecting NEOs
-discovery_rate = [2.4, 3.4] #discovery rate per belt (hourly)
+discovery_rate = [2.4, 3.4] #discovery rate per belt (hourly) - main, neo respectively
 total_visibility_per_day = [4.8, 5.5, 6.5, 4.7, 5.4, 5.6, 6.1]
 neo_visibility_per_day = [3.3, 3.9, 4.0, 3.6, 3.6, 3.8, 4.8]
 maxData = 500 #GB per day
