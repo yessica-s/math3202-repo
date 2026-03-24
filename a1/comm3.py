@@ -55,6 +55,11 @@ for d in D:
 #Run model
 m.optimize()
 
+
+for t in T:
+    print(f"Hours on main belt on {telescopes[t]}: {sum(X[t, d].x for d in D)}")
+    print(f"Hours on neo belt on {telescopes[t]}: {sum(Y[t, d].x for d in D)}")
+
 #Find optimal discoveries
 print(m.ObjVal)
 
