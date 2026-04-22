@@ -164,12 +164,12 @@ I = range(len(Staff))
 
 """ my code below """
 
+import gurobipy as gp
+m = gp.Model("Ancestral Skies Collaboration")
 
 #Data
 maxHours = 36 
-
-import gurobipy as gp
-m = gp.Model("Ancestral Skies Collaboration")
+bannedPairs = [(1,5), (8,9), (2,3), (7,12)]
 
 #Variables
 X = {(i, j): m.addVar(vtype=gp.GRB.BINARY) for i in I for j in J} 
@@ -182,9 +182,13 @@ m.setObjective(gp.quicksum(X[i,j]*Staff[i][Tasks[j]['skill']] for i in I for j i
 for i in I:
     m.addConstr(gp.quicksum(X[i,j]*Tasks[j]['duration'] for j in J) <= maxHours)
 
-#num required staff per task
 for j in J:
+    #num required staff per task
     m.addConstr(gp.quicksum(X[i,j] for i in I) == Tasks[j]['staff'])
+
+    #staff to avoid eachother (comm7)
+    for pair in bannedPairs:
+        m.addConstr(gp.quicksum(X[i,j] for i in pair) <= 1)
 
 m.optimize()
 print(m.ObjVal)
