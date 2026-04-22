@@ -1,4 +1,4 @@
- import gurobipy as gp
+import gurobipy as gp
 
 # Sets
 Oils = ["Veg 1", "Veg 2", "Oil 1", "Oil 2", "Oil 3"]
