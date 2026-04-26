@@ -1,3 +1,82 @@
+# import gurobipy as gp
+# import sys
+
+# Skills = [
+#     "Electronics maintenance",
+#     "Mechanical maintenance",
+#     "Optics handling",
+#     "Software operation",
+#     "Instrument calibration",
+#     "Data acquisition",
+#     "Computing support",
+#     "Adaptive optics",
+#     "Cryogenics",
+#     "Network infrastructure",
+#     "Instrument integration",
+#     "Preventive maintenance",
+#     "Environment monitoring",
+#     "Technical reporting",
+#     "Management",
+# ]
+
+# Days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+# T = range(len(Days))
+
+# # Tasks to be completed (duration is in hours)
+# Tasks = [
+#     {"title": "Structural and mechanical repairs", "skill": 1, "staff": 2, "duration": 4, "day": 0},
+#     {"title": "Adaptive optics system validation", "skill": 7, "staff": 1, "duration": 2, "day": 0},
+#     {"title": "Optical alignment checks", "skill": 2, "staff": 1, "duration": 1, "day": 0},
+#     {"title": "Testing weather-monitoring systems", "skill": 12, "staff": 2, "duration": 1, "day": 0},
+#     {"title": "Assembly and testing of mechanical fixtures", "skill": 1, "staff": 1, "duration": 3, "day": 0},
+#     {"title": "Instrument calibration", "skill": 4, "staff": 2, "duration": 2, "day": 0},
+#     {"title": "Monitoring weather and system status", "skill": 12, "staff": 1, "duration": 3, "day": 0},
+#     {"title": "Cryogenic system checks", "skill": 8, "staff": 2, "duration": 1, "day": 0},
+#     {"title": "Testing remote-observing systems", "skill": 6, "staff": 2, "duration": 2, "day": 0},
+#     {"title": "Drives and dome troubleshooting", "skill": 1, "staff": 2, "duration": 2, "day": 0},
+#     {"title": "Nightly telescope operation", "skill": 3, "staff": 2, "duration": 8, "day": 0},
+#     {"title": "Mentoring junior staff", "skill": 14, "staff": 1, "duration": 2, "day": 0},
+#     {"title": "Preparing dome and telescope for night operations", "skill": 3, "staff": 1, "duration": 2, "day": 0},
+#     {"title": "Updating and reviewing system logs", "skill": 13, "staff": 2, "duration": 2, "day": 0},
+#     {"title": "Documenting issues and proposed improvements", "skill": 13, "staff": 1, "duration": 4, "day": 0},
+#     {"title": "Preventive maintenance on control systems", "skill": 11, "staff": 2, "duration": 3, "day": 0},
+#     {"title": "Instrument data-acquisition monitoring", "skill": 5, "staff": 1, "duration": 3, "day": 0},
+#     {"title": "Facility maintenance (HVAC, water, power)", "skill": 1, "staff": 2, "duration": 2, "day": 0},
+# ]
+
+# # Skill scores for each staff member
+# Staff = [
+#     [14.4, 2.6, 6.1, 31.4, 5.9, 0, 3.6, 6.5, 7.6, 6.5, 1.8, 0, 18.4, 5.4, 0],
+#     [3.6, 7.9, 0, 10.2, 19.3, 2.7, 13.1, 18.0, 2.5, 0, 3.1, 2.2, 10.0, 1.7, 14.1],
+#     [5.2, 2.4, 19.5, 3.8, 2.5, 10.2, 2.3, 3.0, 0, 10.0, 27.9, 7.6, 7.8, 0, 11.7],
+#     [5.5, 7.1, 10.1, 2.2, 2.2, 5.9, 3.9, 3.6, 10.6, 1.9, 13.6, 10.2, 5.3, 15.3, 5.2],
+#     [0, 6.0, 0, 5.5, 5.5, 0, 1.8, 6.1, 5.1, 18.4, 22.1, 17.6, 9.0, 1.7, 2.7],
+#     [13.8, 10.0, 3.0, 6.0, 11.4, 7.9, 5.2, 0, 11.6, 14.3, 7.9, 7.7, 6.1, 6.0, 0],
+#     [0, 2.4, 13.3, 3.1, 19.5, 6.8, 2.3, 2.0, 2.8, 21.6, 20.0, 6.8, 0, 6.1, 3.1],
+#     [3.1, 5.8, 5.3, 5.3, 0, 2.8, 10.1, 6.9, 9.4, 11.7, 15.1, 6.4, 2.8, 5.4, 14.2],
+#     [11.3, 0, 10.1, 13.2, 2.9, 6.5, 0, 11.5, 9.9, 14.8, 11.2, 14.9, 5.9, 0, 0],
+#     [14.0, 1.4, 10.8, 9.5, 0, 10.7, 5.0, 5.6, 5.6, 7.9, 0, 1.5, 6.8, 18.0, 5.7],
+#     [0, 1.7, 8.0, 6.1, 10.3, 5.1, 0, 15.3, 3.4, 11.2, 11.3, 11.8, 10.0, 5.4, 9.7],
+#     [2.7, 15.1, 10.7, 14.1, 7.3, 0, 2.3, 6.1, 1.3, 13.9, 11.7, 3.3, 7.7, 5.7, 7.5],
+#     [13.2, 3.8, 7.7, 19.4, 1.7, 5.1, 0, 3.3, 10.5, 6.0, 2.2, 11.4, 0, 13.9, 9.9],
+# ]
+
+# S = range(len(Skills))
+# J = range(len(Tasks))
+# I = range(len(Staff))
+
+# # Forbidden staff pairs
+# forbidden_staff_pairs = [(3, 5), (0, 10), (5, 11), (2, 6)]
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""" """
+import gurobipy as gp
+import sys 
+
 Skills = [
     "Electronics maintenance",
     "Mechanical maintenance",
@@ -163,68 +242,154 @@ S = range(len(Skills))
 J = range(len(Tasks))
 I = range(len(Staff))
 
+forbidden_staff_pairs = [(1,5), (8,9), (2,3), (7,12)]
 
-""" my code below """
+""""""""""""""""""""""""""""""""""""""""""""""""""""""" """
 
-import gurobipy as gp
-m = gp.Model("Ancestral Skies Collaboration")
+maxWorkDays = 5
+maxDailyHours = 10
+maxWeeklyHours = 36
 
-#Data
-maxHoursWeekly = 36 
-bannedPairs = [(1,5), (8,9), (2,3), (7,12)]         #(comm7)
-maxHoursDaily = 10                                  #(comm8)
-daysOff = 2                                         #(comm8)
-maxDaysWorked = 7 - daysOff                         #(comm8)
-standaloneTask = 'Nightly telescope operation'      #(comm9)
-trainingOpportunities = 5                           #(comm10)
-trainingScoreIncrease = 7                           #(comm10)
+model = gp.Model("A2 - Ancestral")
 
-#Variables
-X = {(i, j): m.addVar(vtype=gp.GRB.BINARY) for i in I for j in J}   #tracks if staff i assigned to task j
-Y = {(i, d): m.addVar(vtype=gp.GRB.BINARY) for i in I for d in T}   #tracks if staff i working on day d (comm8)
-Z = {(i, s): m.addVar(vtype=gp.GRB.BINARY) for i in I for s in S}   #tracks if staff i trained in skill s (comm10)
+# Decision variables
+TA = model.addVars(I, J, vtype=gp.GRB.BINARY, name="TA")
+TH = model.addVars(J, lb=0.0, vtype=gp.GRB.CONTINUOUS, name="TH")
+SS = model.addVars(I, lb=0.0, vtype=gp.GRB.CONTINUOUS, name="SS")
+WH = {(i, t): model.addVar() for i in I for t in T}
 
-#Objective
-m.setObjective(gp.quicksum(X[i,j]*(Staff[i][Tasks[j]['skill']]+Z[i,Tasks[j]['skill']]*trainingScoreIncrease) for i in I for j in J), gp.GRB.MAXIMIZE)
+WorkDay = model.addVars(I, T, vtype=gp.GRB.BINARY, name="WorkDay")
 
-#Constraints
+C = {}
+
+# Constraints
+C["Duration"] = model.addConstrs(
+    TH[j] == Tasks[j]["duration"] * gp.quicksum(TA[i, j] for i in I)
+    for j in J
+)
+
+Train = model.addVars(I, S, vtype=gp.GRB.BINARY, name="Train")
+
+C["OneTrainPerStaff"] = model.addConstrs(
+    gp.quicksum(Train[i, s] for s in S) <= 1 for i in I
+)
+
+C["MaxTotalTrainings"] = model.addConstr(
+    gp.quicksum(Train[i, s] for i in I for s in S) <= 5
+)
+
+U = model.addVars(I, J, vtype=gp.GRB.BINARY, name="U")
+
+
+def task_skill_index(j):
+    return Tasks[j]["skill"]
+
+
+C["Skills"] = model.addConstrs(
+    SS[i]
+    == gp.quicksum(
+        Staff[i][task_skill_index(j)] * TA[i, j] + 7 * U[i, j]
+        for j in J
+    )
+    for i in I
+)
+
 for i in I:
-    #max hours worked per technician - weekly
-    m.addConstr(gp.quicksum(X[i,j]*Tasks[j]['duration'] for j in J) <= maxHoursWeekly)
+    for j in J:
+        k = task_skill_index(j)
+        model.addConstr(U[i, j] <= TA[i, j])
+        model.addConstr(U[i, j] <= Train[i, k])
+        model.addConstr(U[i, j] >= TA[i, j] + Train[i, k] - 1)
 
-    for d in T:
-        #max hours worked per technician - daily (comm8)
-        m.addConstr(gp.quicksum(X[i,j]*Tasks[j]['duration'] for j in J if Tasks[j]['day']==d) <= maxHoursDaily)
+C["StaffAssignment"] = model.addConstrs(
+    gp.quicksum(TA[i, j] for i in I) == Tasks[j]["staff"] for j in J
+)
 
-        #linking variable Y to X (comm8)
-        m.addConstr(10000*Y[i,d] >= gp.quicksum(X[i,j] for j in J if Tasks[j]['day']==d)) 
+C["ForbiddenPairs"] = model.addConstrs(
+    TA[i, j] + TA[k, j] <= 1
+    for (i, k) in forbidden_staff_pairs
+    for j in J
+)
 
-        #nightly telescope operation is a standalone task (comm9)
-        m.addConstr(gp.quicksum(X[i,j] for j in J if Tasks[j]['title']!=standaloneTask and Tasks[j]['day']==d) 
-                    <= 10000*(1 - gp.quicksum(X[i,j] for j in J if Tasks[j]['title']==standaloneTask and Tasks[j]['day']==d)))
+C["WorkHoursDaily"] = model.addConstrs(
+    gp.quicksum(WH[i, t] for t in T)
+    == gp.quicksum(Tasks[j]["duration"] * TA[i, j] for j in J)
+    for i in I
+)
 
-    #minimum 2 days off per week per technician
-    m.addConstr(gp.quicksum(Y[i,d] for d in T) <= maxDaysWorked) #(comm8)
+C["DailyMax"] = model.addConstrs(
+    gp.quicksum(
+        Tasks[j]["duration"] * TA[i, j]
+        for j in J if Tasks[j]["day"] == t
+    )
+    <= maxDailyHours
+    for i in I for t in T
+)
 
-for j in J:
-    #num required staff per task
-    m.addConstr(gp.quicksum(X[i,j] for i in I) == Tasks[j]['staff'])
+C["MaxWorkHours"] = model.addConstrs(
+    gp.quicksum(WH[i, t] for t in T) <= maxWeeklyHours
+    for i in I
+)
 
-    #staff to avoid eachother (comm7)
-    for pair in bannedPairs:
-        m.addConstr(gp.quicksum(X[i,j] for i in pair) <= 1)
+C["LinkWorkDay"] = model.addConstrs(
+    TA[i, j] <= WorkDay[i, Tasks[j]["day"]]
+    for i in I for j in J
+)
 
-#available training opportunities (comm10)
-m.addConstr(gp.quicksum(Z[i,s] for i in I for s in S) <= trainingOpportunities)
+C["DaysOff"] = model.addConstrs(
+    gp.quicksum(WorkDay[i, t] for t in T) <= maxWorkDays
+    for i in I
+)
 
-#one training per staff member (comm10)
-m.addConstrs(gp.quicksum(Z[i,s] for s in S) <= 1 for i in I)
+NightAssigned = model.addVars(I, T, vtype=gp.GRB.BINARY, name="NightAssigned")
 
-m.optimize()
-print(m.ObjVal)
+nightly_title = "Nightly telescope operation"
 
-#print technicians for training
-for i in I:
-    for s in S:
-        if Z[i,s].X:
-            print(f"Technician {i} trained in {Skills[s]}")
+C["NightlyLink"] = model.addConstrs(
+    TA[i, j] <= NightAssigned[i, Tasks[j]["day"]]
+    for i in I for j in J
+    if Tasks[j]["title"] == nightly_title
+)
+
+bigM = len(list(J))
+
+non_nightly_by_day = {
+    t: [
+        j for j in J
+        if Tasks[j]["day"] == t and Tasks[j]["title"] != nightly_title
+    ]
+    for t in T
+}
+
+C["NoOtherIfNight"] = model.addConstrs(
+    gp.quicksum(TA[i, j] for j in non_nightly_by_day[t])
+    <= (1 - NightAssigned[i, t]) * bigM
+    for i in I for t in T
+)
+
+model.setObjective(gp.quicksum(SS[i] for i in I), gp.GRB.MAXIMIZE)
+model.optimize()
+
+if model.status != gp.GRB.OPTIMAL:
+    print("Model status:", model.status)
+else:
+    print("Optimal task assignments:")
+    for j in J:
+        assigned_staff = [i for i in I if TA[i, j].X > 0.5]
+        print(f"{Tasks[j]['title']} {Tasks[j]['day']} {assigned_staff}")
+
+    print("\nChosen trainings (staff -> skill):")
+    any_train = False
+    for i in I:
+        for s in S:
+            if Train[i, s].X > 0.5:
+                print(f"Staff {i} -> {Skills[s]}")
+                any_train = True
+
+    if not any_train:
+        print("None")
+
+    print("Total skill utilization across all staff:", sum(SS[i].X for i in I))
+    print("Objective (model.objVal):", model.objVal)
+
+    sys.exit(0)
