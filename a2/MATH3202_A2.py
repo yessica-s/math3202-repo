@@ -249,6 +249,10 @@ for i in I:
 #Available Training Slots Constraint (comm10)
 m.addConstr(gp.quicksum(Z[i,s] for i in I for s in S) <= trainingSlots)
 
+#One Training per Staff (comm10)
+for i in I:
+    m.addConstr(gp.quicksum(Z[i,s] for s in S) <= 1)
+
 m.optimize()
 print(m.ObjVal)
 
