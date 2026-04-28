@@ -254,7 +254,14 @@ for i in I:
     m.addConstr(gp.quicksum(Z[i,s] for s in S) <= 1)
 
 m.optimize()
-print(m.ObjVal)
+
+#print optimal skill score
+print(f"Optimal skill score is: {m.ObjVal}")
+
+#print task allocations
+for j in J:
+    assigned = [i for i in I if X[i,j].x > 0]
+    print(f"Task: {title(j)} | Allocated staff {assigned}")
 
 #print technicians for training
 for i in I:
