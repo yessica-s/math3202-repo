@@ -208,9 +208,11 @@ m = gp.Model("Ancestral Skies Collaboration")
 X = {(i, j): m.addVar(vtype=gp.GRB.BINARY) for i in I for j in J}   #tracks if staff i assigned to task j
 Y = {(i, d): m.addVar(vtype=gp.GRB.BINARY) for i in I for d in T}   #tracks if staff i working on day d (comm8)
 Z = {(i, s): m.addVar(vtype=gp.GRB.BINARY) for i in I for s in S}   #tracks if staff i trained in skill s (comm10)
+W = {(i, j): m.addVar(vtype=gp.GRB.BINARY) for i in I for j in J}   #tracks if staff i trained in skill s and assigned to task j that requires skill s (comm10)
+
 
 #Objective
-m.setObjective(gp.quicksum(X[i,j]*(ss(i,j) + Z[i,skill(j)]*trainingSkillIncrease) for i in I for j in J), gp.GRB.MAXIMIZE)
+m.setObjective(gp.quicksum((X[i,j]*ss(i,j) + W[i,j]*trainingSkillIncrease) for i in I for j in J), gp.GRB.MAXIMIZE)
 
 #Constraints
 #Max Hours Weekly Constraint
@@ -252,6 +254,13 @@ m.addConstr(gp.quicksum(Z[i,s] for i in I for s in S) <= trainingSlots)
 #One Training per Staff (comm10)
 for i in I:
     m.addConstr(gp.quicksum(Z[i,s] for s in S) <= 1)
+
+#Linking Variable Z, X, and W (comm10)
+for i in I:
+    for j in J:
+        m.addConstr(W[i,j] <= X[i,j])
+        m.addConstr(W[i,j] <= Z[i,skill(j)])
+        m.addConstr(W[i,j] >= X[i,j] + Z[i,skill(j)] - 1)
 
 m.optimize()
 
