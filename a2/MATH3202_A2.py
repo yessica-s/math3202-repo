@@ -210,7 +210,6 @@ Y = {(i, d): m.addVar(vtype=gp.GRB.BINARY) for i in I for d in T}   #tracks if s
 Z = {(i, s): m.addVar(vtype=gp.GRB.BINARY) for i in I for s in S}   #tracks if staff i trained in skill s (comm10)
 W = {(i, j): m.addVar(vtype=gp.GRB.BINARY) for i in I for j in J}   #tracks if staff i trained in skill s and assigned to task j that requires skill s (comm10)
 
-
 #Objective
 m.setObjective(gp.quicksum((X[i,j]*ss(i,j) + W[i,j]*trainingSkillIncrease) for i in I for j in J), gp.GRB.MAXIMIZE)
 
